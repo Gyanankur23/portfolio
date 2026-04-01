@@ -46,7 +46,6 @@ export default function Hero() {
     resize();
     window.addEventListener('resize', resize);
 
-    const isDark = document.documentElement.classList.contains('dark')
     const particles: any[] = []
     const colors = ['rgba(249,98,22,0.5)', 'rgba(14,165,233,0.5)', 'rgba(56,189,248,0.5)']
 
@@ -61,8 +60,10 @@ export default function Hero() {
       })
     }
 
+    let animId: number
     const animate = () => {
-      ctx.fillStyle = isDark ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)'
+      const isDark = document.documentElement.classList.contains('dark')
+      ctx.fillStyle = isDark ? 'rgba(6,13,31,0.15)' : 'rgba(255,255,255,0.15)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach(p => {
@@ -74,10 +75,13 @@ export default function Hero() {
         ctx.fillStyle = p.color
         ctx.fill()
       })
-      requestAnimationFrame(animate)
+      animId = requestAnimationFrame(animate)
     }
     animate()
-    return () => window.removeEventListener('resize', resize)
+    return () => {
+      cancelAnimationFrame(animId)
+      window.removeEventListener('resize', resize)
+    }
   }, [])
 
   return (

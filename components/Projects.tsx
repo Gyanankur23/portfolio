@@ -19,9 +19,9 @@ export default function Projects() {
   const displayed = showAll ? filtered : filtered.slice(0, 12)
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6" ref={ref as any}>
+    <section id="projects" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-7xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
-        <span className="section-number">03 / projects</span>
+        <span className="section-number">04 / projects</span>
         <h2 className="section-title mb-4">140 Projects Built</h2>
         <p className="mb-8" style={{ color: 'var(--text-muted)' }}>
           From published PyPI libraries to real-time Streamlit apps, Power BI challenges to full-stack SaaS platforms.

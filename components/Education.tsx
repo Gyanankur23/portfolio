@@ -7,9 +7,9 @@ export default function Education() {
   const { ref, inView } = useInView()
 
   return (
-    <section id="education" className="py-24 px-4 sm:px-6" ref={ref as any}>
+    <section id="education" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-5xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
-        <span className="section-number">05 / education</span>
+        <span className="section-number">06 / education</span>
         <h2 className="section-title mb-12">Academic & Leadership Programs</h2>
 
         <div className="space-y-6">

@@ -24,9 +24,9 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-24 px-4 sm:px-6" ref={ref as any} style={{ background: 'var(--bg-secondary)' }}>
+    <section id="skills" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-7xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
-        <span className="section-number">04 / skills</span>
+        <span className="section-number">05 / skills</span>
         <h2 className="section-title mb-4">Technical Expertise</h2>
         <p className="mb-12" style={{ color: 'var(--text-muted)' }}>
           Built from professional certifications, 30 internships, and 140 shipped projects.

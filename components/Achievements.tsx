@@ -10,9 +10,9 @@ export default function Achievements() {
   const { ref, inView } = useInView()
 
   return (
-    <section id="achievements" className="py-24 px-4 sm:px-6" ref={ref as any}>
+    <section id="achievements" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-6xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
-        <span className="section-number">07 / achievements</span>
+        <span className="section-number">08 / achievements</span>
         <h2 className="section-title mb-4">Awards & Recognition</h2>
         <p className="mb-12" style={{ color: 'var(--text-muted)' }}>
           From 1st place challenges to McKinsey Distinction and IIT Bombay entrepreneurship programs.

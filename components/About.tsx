@@ -1,7 +1,7 @@
 'use client'
 
 import { portfolioData } from '@/lib/data'
-import { MapPin, GraduationCap, Users, Code2, ChevronRight } from 'lucide-react'
+import { MapPin, GraduationCap, Users, Code2, Wind, GitBranch, BookOpen, Palette } from 'lucide-react'
 import { useInView } from '@/lib/useInView'
 
 export default function About() {
@@ -15,7 +15,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6" ref={ref as any}>
+    <section id="about" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-7xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
         <span className="section-number">01 / about</span>
         <h2 className="section-title mb-12">Who I Am</h2>
@@ -48,22 +48,44 @@ export default function About() {
               />
             </div>
 
-            {/* Orbit badges */}
-            {['Python', 'Power BI', 'Next.js', 'AI/ML','Latex','Advanced Excel'].map((label, i) => (
+            {/* Orbit wire lines - connecting badges to center (subtle, not touching image) */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+              <line x1="50%" y1="50%" x2="88%" y2="15%" stroke="rgba(249,98,22,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="12%" y2="25%" stroke="rgba(14,165,233,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="92%" y2="42%" stroke="rgba(249,98,22,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="8%" y2="55%" stroke="rgba(14,165,233,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="85%" y2="72%" stroke="rgba(249,98,22,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="15%" y2="78%" stroke="rgba(14,165,233,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="rgba(249,98,22,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <line x1="50%" y1="50%" x2="50%" y2="88%" stroke="rgba(14,165,233,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+            </svg>
+
+            {/* Orbit badges with icons - spread out positions */}
+            {[
+              { label: 'Python', icon: null, pos: { top: '5%', left: '42%' }, color: 'orange' },
+              { label: 'Power BI', icon: null, pos: { top: '12%', right: '8%' }, color: 'orange' },
+              { label: 'Next.js', icon: null, pos: { top: '28%', left: '2%' }, color: 'blue' },
+              { label: 'AI/ML', icon: null, pos: { top: '42%', right: '2%' }, color: 'orange' },
+              { label: 'LaTeX', icon: null, pos: { top: '58%', left: '0%' }, color: 'blue' },
+              { label: 'Excel', icon: null, pos: { top: '72%', right: '8%' }, color: 'orange' },
+              { label: 'Streamlit', icon: <Wind size={14} className="mr-1" />, pos: { bottom: '8%', left: '12%' }, color: 'blue' },
+              { label: 'Git', icon: <GitBranch size={14} className="mr-1" />, pos: { bottom: '5%', right: '20%' }, color: 'orange' },
+              { label: 'Jupyter', icon: <BookOpen size={14} className="mr-1" />, pos: { top: '85%', left: '35%' }, color: 'orange' },
+              { label: 'Tailwind', icon: <Palette size={14} className="mr-1" />, pos: { top: '8%', right: '28%' }, color: 'blue' },
+            ].map((item, i) => (
               <div
-                key={label}
-                className="absolute font-mono text-xs px-3 py-1 rounded-full border"
+                key={item.label}
+                className="absolute flex items-center font-mono text-xs px-3 py-1.5 rounded-full border whitespace-nowrap"
                 style={{
                   background: 'var(--card)',
-                  borderColor: 'var(--card-border)',
-                  color: 'var(--text-muted)',
-                  top: `${20 + i * 22}%`,
-                  right: i % 2 === 0 ? '-5%' : undefined,
-                  left: i % 2 !== 0 ? '-5%' : undefined,
-                  animationDelay: `${i * 0.5}s`,
+                  borderColor: item.color === 'orange' ? 'rgba(249,98,22,0.4)' : 'rgba(14,165,233,0.4)',
+                  color: item.color === 'orange' ? 'var(--orange)' : '#38bdf8',
+                  zIndex: 2,
+                  ...item.pos,
                 }}
               >
-                {label}
+                {item.icon}
+                {item.label}
               </div>
             ))}
           </div>
@@ -71,11 +93,10 @@ export default function About() {
           {/* Right: bio + highlights */}
           <div>
             <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--text-muted)' }}>
-              I am a Final Year Data Science student at Thakur Shyamnarayan Degree College, Mumbai. My academic foundation is built on a 9.45 SGPA, which I balance with real-world execution. As the lead at MetaMindset Labs and founder of Machine Learning Open Shelf, I focus on building functional AI solutions, data-driven dashboards, and scalable web applications. My work is centered on bridging the gap between raw data and actionable intelligence.
-
+              I am a Final Year Data Science student at Thakur Shyamnarayan Degree College, Mumbai, maintaining a 9.45 SGPA. As the Documentation Lead at MetaMindset Labs, I specialize in reverse engineering messy documents into clean, structured formats using code-driven approaches. I also lead Machine Learning Open Shelf, focusing on practical AI solutions and data-driven dashboards.
             </p>
             <p className="leading-relaxed mb-8" style={{ color: 'var(--text-muted)' }}>
-              This portfolio is a transparent archive of my technical journey. It documents my progression across data analytics, Generative AI implementation, and full-stack development. Beyond coding, I am deeply involved in community leadership through DataFam Mumbai, where I contribute to research and social impact initiatives. My goal is to maintain a consistent record of shipping high-quality, practical solutions that solve real-world problems.
+              My work bridges raw data and actionable intelligence through documentation, analytics, and full-stack development. I am involved in community leadership via DataFam Mumbai, contributing to research and social impact initiatives while maintaining a record of shipping practical solutions.
             </p>
 
             {/* Highlight grid */}
@@ -120,11 +141,6 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-60 z-40">
-        <ChevronRight size={20} className="text-[var(--orange)] animate-pulse" />
-        <ChevronRight size={20} className="text-[var(--orange)] animate-pulse delay-75" />
       </div>
     </section>
   )

@@ -35,29 +35,24 @@
 
 html { 
   scroll-behavior: smooth;
-  overflow-y: auto;
   overflow-x: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: auto;
+  width: 100%;
 }
 
 main {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: fit-content;
+  display: block;
+  width: 100%;
 }
 
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 100vh;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  width: 100%;
 }
 
 /* ─── Text Animations ─── */
@@ -206,19 +201,13 @@ body {
   }
 }
 
-/* ─── Layout Section (Vertical Stacking) ─── */
+/* ─── Layout Section (Clean Continuous Flow) ─── */
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-width: 100vw;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  flex-shrink: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  padding: 4rem 1rem;
 }
 
 /* ─── Scrollbar (Vertical Right Side) ─── */
@@ -420,15 +409,27 @@ section {
 /* ─── Portfolio Cards ─── */
 .portfolio-card {
   background: var(--card);
-  border: 1px solid var(--card-border);
+  border: 2px solid var(--card-border);
   border-radius: 16px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 .portfolio-card:hover {
-  border-color: rgba(249, 98, 22, 0.4);
-  box-shadow: 0 8px 32px rgba(249, 98, 22, 0.12);
-  transform: translateY(-2px);
+  border-color: rgba(249, 98, 22, 0.5);
+  box-shadow: 0 12px 40px rgba(249, 98, 22, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Light mode card enhancement */
+:root:not(.dark) .portfolio-card {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+:root:not(.dark) .portfolio-card:hover {
+  border-color: #f96216;
+  box-shadow: 0 16px 48px rgba(249, 98, 22, 0.2);
 }
 
 /* ─── Buttons ─── */
@@ -473,8 +474,50 @@ section {
   }
 }
 
+/* ─── Section Headers ─── */
+.section-number {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--orange);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .section-title { 
+    font-size: 2.5rem; 
+    text-align: center; 
+    margin-bottom: 1.5rem;
+  }
+  .section-number {
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}
+
 @media (max-width: 640px) {
-  .section-title { font-size: 2rem; text-align: center; }
+  .section-title { 
+    font-size: 2rem; 
+    text-align: center; 
+    margin-bottom: 1rem;
+  }
+  .section-number {
+    font-size: 0.75rem;
+    text-align: center;
+  }
   .btn-primary, .btn-outline { width: 100%; justify-content: center; }
   
   /* Prevent large elements from causing horizontal scroll */

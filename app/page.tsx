@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import FeaturedDocs from '@/components/FeaturedDocs'
 import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
@@ -13,10 +14,11 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="flex flex-row h-screen w-fit overflow-x-scroll overflow-y-hidden">
+    <main>
       <Navbar />
       <Hero />
       <About />
+      <FeaturedDocs />
       <Experience />
       <Projects />
       <Skills />

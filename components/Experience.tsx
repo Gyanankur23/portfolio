@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { portfolioData } from '@/lib/data'
 import { useInView } from '@/lib/useInView'
-import { Calendar, MapPin, ExternalLink, Briefcase, ChevronRight } from 'lucide-react'
+import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Experience() {
@@ -13,9 +13,9 @@ export default function Experience() {
   const displayed = showAll ? portfolioData.experience : portfolioData.experience.slice(0, 10)
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6" style={{ background: 'var(--bg-secondary)' }} ref={ref as any}>
+    <section id="experience" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-5xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
-        <span className="section-number">02 / experience</span>
+        <span className="section-number">03 / experience</span>
         <h2 className="section-title mb-4">30 Internships & Roles</h2>
         <p className="mb-12" style={{ color: 'var(--text-muted)' }}>
           From McKinsey's Leadership Accelerator to AI internships, hackathons to community founding.
@@ -117,11 +117,6 @@ export default function Experience() {
             {showAll ? 'Show Less' : `Show All ${portfolioData.experience.length} Roles`}
           </button>
         )}
-
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-60 z-40">
-          <ChevronRight size={20} className="text-[var(--orange)] animate-pulse" />
-          <ChevronRight size={20} className="text-[var(--orange)] animate-pulse delay-75" />
-        </div>
       </div>
     </section>
   )

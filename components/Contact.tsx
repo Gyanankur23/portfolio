@@ -59,9 +59,9 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6" style={{ background: 'var(--bg-secondary)' }} ref={ref as any}>
+    <section id="contact" className="py-24 px-4 sm:px-6 bg-gradient-to-b from-transparent via-[var(--orange-glow)] to-transparent" ref={ref as any}>
       <div className={`max-w-4xl mx-auto section-reveal ${inView ? 'visible' : ''}`}>
-        <span className="section-number">08 / contact</span>
+        <span className="section-number">10 / contact</span>
         <h2 className="section-title mb-4">Let&apos;s Connect</h2>
         <p className="mb-12 max-w-xl" style={{ color: 'var(--text-muted)' }}>
           Open to internships, collaborations, data science roles, AI projects, and community initiatives. Drop a message anytime.
